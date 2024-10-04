@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tourism Booking System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .booking-info {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Tourism Booking System</h1>
+    
+    <button id="bookButton">Book Now</button>
+    <div class="booking-info">
+        <h3>Total Bookings: <span id="bookingCount">0</span></h3>
+    </div>
+
+    <script>
+        // Initial number of bookings
+        let bookingCount = 0;
+
+        // Function to update booking count
+        function updateBookingCount() {
+            bookingCount++;
+            document.getElementById('bookingCount').innerText = bookingCount;
+            alert('Booking successful! Total bookings: ' + bookingCount);
+        }
+
+        // Event listener for booking button
+        document.getElementById('bookButton').addEventListener('click', updateBookingCount);
+    </script>
+</body>
+</html>

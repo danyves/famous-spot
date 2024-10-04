@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <title>About Us</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .about-section {
+            padding: 50px;
+            text-align: center;
+            background-color: #474e5d;
+            color: white;
+        }
+        .container {
+            padding: 20px;
+        }
+        .row {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .column {
+            flex: 33.33%;
+            max-width: 33.33%;
+            padding: 10px;
+        }
+        .card {
+            background-color: white;
+            padding: 20px;
+            margin: 10px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        .title {
+            color: grey;
+        }
+        .button {
+            border: none;
+            outline: 0;
+            display: inline-block;
+            padding: 10px;
+            color: white;
+            background-color: #000;
+            text-align: center;
+            cursor: pointer;
+            width: 100%;
+        }
+        .button:hover {
+            background-color: #555;
+        }
+        @media screen and (max-width: 650px) {
+            .column {
+                flex: 100%;
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="index.html">HOME</a>
+        <a href="about.html">ABOUT</a>
+        <a href="services.html">SERVICES</a>
+        <a href="contact.html">CONTACT</a>
+        <a href="destination.html">DESTINATION</a>
+      </div>
+      
+
+<div class="about-section">
+    <h1>Travel Goal</h1>
+    <p>Setting travel goals is a powerful way to transform your wanderlust into tangible experiences.
+         By creating a list of desired destinations and activities, you can turn your travel dreams into reality.
+         In this blog post, we will delve into the benefits of setting such goals and how they can help shape unforgettable journeys.
+
+         We will provide inspiration for crafting your own unique travel goals list, featuring must-see destinations and off-the-beaten-path adventures.
+         Additionally, we'll share valuable tips on how to set achievable targets.
+        
+        Finally, discover how Worldpackers can serve as an essential resource in achieving your long-term objectives by connecting you with incredible opportunities across the globe with free accommodation. Whether it's scuba diving in exotic locations or experiencing once-in-a-lifetime cultural celebrations, this platform makes travel easier than ever before.
+        
+        </p>
+    <p>Traveling is amazing, but setting specific goals can make your trips even more meaningful.
+         Envisioning your ideal getaways and activities can lead you on a voyage of self-exploration, growth, and remarkable experiences.
+
+        Setting travel goals not only adds purpose to your adventures but also gives you direction in planning your trips. 
+        It's easy to get overwhelmed by all the amazing places out there waiting to be explored. Having clear objectives helps narrow down the options while keeping you motivated throughout the entire process.
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Get Current Location</title>
+        </head>
+        <body>
+            <h1>Find Your Current Location</h1>
+            <button onclick="getLocation()">Get Location</button>
+            <p id="locationOutput"></p>
+        
+            <script>
+                // Function to get the location
+                function getLocation() {
+                    if (navigator.geolocation) {
+                        navigator.geolocation.getCurrentPosition(showPosition, showError);
+                    } else {
+                        document.getElementById("locationOutput").innerHTML = "Geolocation is not supported by this browser.";
+                    }
+                }
+        
+                // Show position
+                function showPosition(position) {
+                    let lat = position.coords.latitude;
+                    let lon = position.coords.longitude;
+                    document.getElementById("locationOutput").innerHTML = 
+                        "Latitude: " + lat + "<br>Longitude: " + lon;
+        
+                    // To get the place name, you'll need to call a reverse geocoding service
+                    getPlaceName(lat, lon);
+                }
+        
+                // Show error
+                function showError(error) {
+                    switch (error.code) {
+                        case error.PERMISSION_DENIED:
+                            document.getElementById("locationOutput").innerHTML = "User denied the request for Geolocation.";
+                            break;
+                        case error.POSITION_UNAVAILABLE:
+                            document.getElementById("locationOutput").innerHTML = "Location information is unavailable.";
+                            break;
+                        case error.TIMEOUT:
+                            document.getElementById("locationOutput").innerHTML = "The request to get user location timed out.";
+                            break;
+                        case error.UNKNOWN_ERROR:
+                            document.getElementById("locationOutput").innerHTML = "An unknown error occurred.";
+                            break;
+                    }
+                }
+        
+                // Function to reverse geocode and get place name (using a free API like OpenStreetMap Nominatim)
+                function getPlaceName(lat, lon) {
+                    const url = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}&zoom=10`;
+        
+                    fetch(url)
+                        .then(response => response.json())
+                        .then(data => {
+                            let placeName = data.display_name;
+                            document.getElementById("locationOutput").innerHTML += `<br>Place Name: ${placeName}`;
+                        })
+                        .catch(error => {
+                            document.getElementById("locationOutput").innerHTML += "<br>Could not retrieve place name.";
+                        });
+                }
+            </script>
+        </body>
+        </html>
+
+    </p>
+
+</div>
+
+<h2 style="text-align:center">About</h2>
+<div class="row">
+    <div class="column">
+        <div class="card">
+            <img src="team1.jpg" alt="DAN" style="width:100%">
+            <div class="container">
+                <h2>Tourism Manager</h2>
+                <p class="title">Dan Gutierrez</p>
+                <p>The Tourism Manager plays an essential role in shaping the experiences that define a destination’s appeal to visitors.
+                     By orchestrating a diverse array of services, attractions, and events,
+                     this professional ensures that both leisure and business travelers find engaging, enjoyable, and smoothly run activities that meet their interests and needs.
+                     Through strategic planning, marketing, and collaboration with local businesses and cultural institutions, 
+                     the Tourism Manager enhances the economic impact of tourism while promoting sustainable practices that preserve the destination’s natural and cultural heritage. 
+                     Balancing the expectations of tourists with the well-being of the local community, this role is about creating memorable experiences that encourage repeat visits and positive word-of-mouth,
+                     contributing to the area’s reputation as a desirable travel destination.
+                </p>
+
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Social Media Icons</title>
+                    <!-- Link to Font Awesome -->
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+                    <style>
+                        /* Basic styling for icons */
+                        .social-icons {
+                            display: flex;
+                            justify-content: center;
+                            gap: 15px;
+                            margin-top: 20px;
+                        }
+                
+                        .social-icons a {
+                            font-size: 30px;
+                            color: #5017ec;
+                            text-decoration: none;
+                            transition: color 0.3s ease;
+                        }
+                
+                        .social-icons a:hover {
+                            color: #007bff;
+                        }
+                    </style>
+                </head>
+                <body>
+                
+                    <div class="social-icons">
+                        <!-- Facebook -->
+                        <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+                
+                        <!-- Messenger -->
+                        <a href="https://www.messenger.com" target="_blank"><i class="fab fa-facebook-messenger"></i></a>
+                
+                        <!-- Twitter -->
+                        <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                
+                        <!-- Instagram -->
+                        <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                
+                        <!-- Gmail (mailto link for email) -->
+                        <a href="mailto:someone@gmail.com"><i class="fas fa-envelope"></i></a>
+                    </div>
+                
+                </body>
+                </html>
+
+    
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="column">
+        <div class="card">
+            <img src="team2.jpg" alt="Cymon" style="width:100%">
+            <div class="container">
+                <h2>Costumer Service</h2>
+                <p class="title">Cymon Espaldon</p>
+                <p>Customer service refers to support and assistance given before, during and after customers purchase a product or service. 
+                    It includes a wide range of activities such as answering questions and finding solution, resolving complaints, interacting with customers,
+                    following up on customer issues, providing guidance and offering advice.
+                    Customer service refers to the support and assistance provided by a business to its customers before, during, and after they purchase a product or service.
+                    The goal of customer service is to ensure customer satisfaction by resolving issues, answering questions, and helping customers make informed decisions.
+
+                </p>
+                
+                <div class="social-icons">
+                    <!-- Facebook -->
+                    <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+            
+                    <!-- Messenger -->
+                    <a href="https://www.messenger.com" target="_blank"><i class="fab fa-facebook-messenger"></i></a>
+            
+                    <!-- Twitter -->
+                    <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+            
+                    <!-- Instagram -->
+                    <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+            
+                    <!-- Gmail (mailto link for email) -->
+                    <a href="mailto:someone@gmail.com"><i class="fas fa-envelope"></i></a>
+                </div>
+            
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="column">
+        <div class="card">
+            <img src="team3.jpg" alt="Abril" style="width:100%">
+            <div class="container">
+                <h2>Travel Agent</h2>
+                <p class="title">Abril Esteves</p>
+                <p>A Travel Agent is a professional who assists individuals and groups in planning, organising, and booking their travel arrangements.
+                     These arrangements include flights, accommodations, transportation, and other travel-related services. 
+
+                    Travel Agents serve as intermediaries between clients and travel suppliers including hotels, airlines and tour operators.
+                    They possess extensive knowledge of destinations, travel trends, and industry regulations. 
+                    
+                    With the advent of online booking platforms, Travel Agents have adapted by offering expertise, convenience,
+                    and personalised service that may not be readily available through automated systems. 
+                    
+                    They stay informed about visa requirements, travel restrictions, and safety measures, guiding clients through the complexities of international travel.
+                    From planning a family vacation or a business trip to a luxury getaway,
+                    a Travel Agent's expertise can enhance the overall travel experience and alleviate the stress associated with trip planning.</p>
+                <p>
+               
+                    <div class="social-icons">
+                        <!-- Facebook -->
+                        <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+                
+                        <!-- Messenger -->
+                        <a href="https://www.messenger.com" target="_blank"><i class="fab fa-facebook-messenger"></i></a>
+                
+                        <!-- Twitter -->
+                        <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                
+                        <!-- Instagram -->
+                        <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                
+                        <!-- Gmail (mailto link for email) -->
+                        <a href="mailto:someone@gmail.com"><i class="fas fa-envelope"></i></a>
+                    </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+</body>
+</html> 

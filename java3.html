@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Current Location</title>
+</head>
+<body>
+    <h1>Find Your Current Location</h1>
+    <button onclick="getLocation()">Get Location</button>
+    <p id="locationOutput"></p>
+
+    <script>
+        // Function to get the location
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition, showError);
+            } else {
+                document.getElementById("locationOutput").innerHTML = "Geolocation is not supported by this browser.";
+            }
+        }
+
+        // Show position
+        function showPosition(position) {
+            let lat = position.coords.latitude;
+            let lon = position.coords.longitude;
+            document.getElementById("locationOutput").innerHTML = 
+                "Latitude: " + lat + "<br>Longitude: " + lon;
+
+            // To get the place name, you'll need to call a reverse geocoding service
+            getPlaceName(lat, lon);
+        }
+
+        // Show error
+        function showError(error) {
+            switch (error.code) {
+                case error.PERMISSION_DENIED:
+                    document.getElementById("locationOutput").innerHTML = "User denied the request for Geolocation.";
+                    break;
+                case error.POSITION_UNAVAILABLE:
+                    document.getElementById("locationOutput").innerHTML = "Location information is unavailable.";
+                    break;
+                case error.TIMEOUT:
+                    document.getElementById("locationOutput").innerHTML = "The request to get user location timed out.";
+                    break;
+                case error.UNKNOWN_ERROR:
+                    document.getElementById("locationOutput").innerHTML = "An unknown error occurred.";
+                    break;
+            }
+        }
+
+        // Function to reverse geocode and get place name (using a free API like OpenStreetMap Nominatim)
+        function getPlaceName(lat, lon) {
+            const url = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}&zoom=10`;
+
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    let placeName = data.display_name;
+                    document.getElementById("locationOutput").innerHTML += `<br>Place Name: ${placeName}`;
+                })
+                .catch(error => {
+                    document.getElementById("locationOutput").innerHTML += "<br>Could not retrieve place name.";
+                });
+        }
+    </script>
+</body>
+</html>

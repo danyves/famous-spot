@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=2, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Bank Calculator App</h2>
+    <p>Click the button Start</p>
+    <p id="result"></p>
+    <button onclick="ComputeBalance()">Input Bank Balance</button>
+    <script>
+        //Execute this function when the button is clicked
+        function ComputeBalance(){
+            const RATE = 6.9;
+            alert("This script will calculate your final balance" +
+                " after an interest rate is applied.");
+            
+            // Corrected to parseFloat to properly convert input to a number
+            let deposit = parseFloat(prompt('Enter the amount of your deposit', ''));
+            
+            if (isNaN(deposit)) {
+                alert("Please enter a valid number.");
+                return;
+            }
+            
+            let newbalance = 0.00;
+            newbalance = deposit + deposit * (RATE / 100);
+
+            // Apply decimal formatting
+            var newbalanceFormatted = newbalance.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+
+            // Display the message with correct spacing
+            alert("In one year, that deposit will grow to\n" +
+                newbalanceFormatted + ", an amount worth waiting for."
+            );
+        }
+    </script>
+</body>
+</html>
